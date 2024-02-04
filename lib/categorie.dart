@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galsen_store/constant.dart';
 import 'package:galsen_store/home.dart';
 import 'package:get/get.dart';
 
@@ -18,20 +19,22 @@ class _CategoriPageState extends State<CategoriPage> {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: kBackgroundColor,
         elevation: 0,
         centerTitle: true,
         title: const Text(
           "Galsen Travel",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: kPrimaryColor),
         ),
         leading: IconButton(
           onPressed: () {
-            Get.to(const Home());
+            Get.to(const Home(),
+                transition: Transition.rightToLeftWithFade,
+                duration: const Duration(seconds: 2));
           },
-          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
+          icon: const Icon(Icons.arrow_back_ios_new, color: kPrimaryColor),
         ),
       ),
       body: SingleChildScrollView(
@@ -52,7 +55,7 @@ class _CategoriPageState extends State<CategoriPage> {
             padding: EdgeInsets.zero,
             height: height * .6,
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: kBackgroundColor,
             ),
             child: SizedBox(
               child: ListView.builder(

@@ -75,32 +75,61 @@ class Chair {
 List<Chair> chairs = [
   Chair(
       title: "Gamer",
-      image: "assets/images/chair1.jpeg",
-      price: "30k",
+      image: "assets/images/gamer1_bg.png",
+      price: "\$30",
+      color: "red-black"),
+  Chair(
+      title: "Gamer",
+      image: "assets/images/gamer2_bg.png",
+      price: "\$80",
+      color: "blue-black"),
+  Chair(
+      title: "Gamer",
+      image: "assets/images/gamer3_bg.png",
+      price: "\$90",
       color: "green"),
   Chair(
       title: "Gamer",
-      image: "assets/images/chair2.jpeg",
-      price: "30k",
+      image: "assets/images/gamer4_bg.png",
+      price: "\$100",
+      color: "blue-black"),
+  Chair(
+      title: "Gamer",
+      image: "assets/images/gamer1_bg.png",
+      price: "\$90",
       color: "green"),
   Chair(
       title: "Gamer",
-      image: "assets/images/chair3.jpeg",
-      price: "30k",
-      color: "green"),
+      image: "assets/images/gamer2_bg.png",
+      price: "\$80",
+      color: "blue-black"),
   Chair(
       title: "Gamer",
-      image: "assets/images/chair1.jpeg",
-      price: "30k",
-      color: "white"),
-  Chair(
-      title: "Gamer",
-      image: "assets/images/chair2.jpeg",
-      price: "30k",
-      color: "yellow"),
-  Chair(
-      title: "Gamer",
-      image: "assets/images/chair3.jpeg",
-      price: "30k",
-      color: "black"),
+      image: "assets/images/gamer3_bg.png",
+      price: "\$90",
+      color: "green")
+];
+
+class ChairColor {
+  final String color, image;
+
+  ChairColor({
+    required this.color,
+    required this.image,
+  });
+}
+
+List chairsColors = [
+  ChairColor(
+    color: "red-black",
+    image: "assets/images/gamer1_bg.png",
+  ),
+  ChairColor(
+    color: "blue-black",
+    image: "assets/images/gamer2_bg.png",
+  ),
+  ChairColor(
+    color: "green",
+    image: "assets/images/gamer3_bg.png",
+  ),
 ];

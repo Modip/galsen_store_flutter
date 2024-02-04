@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_store/categorie.dart';
+import 'package:galsen_store/chaire_page.dart';
+import 'package:galsen_store/constant.dart';
 import 'package:galsen_store/data.dart';
 import 'package:get/get.dart';
 
@@ -37,15 +39,14 @@ class _HomeState extends State<Home> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 17, 5, 45),
+      backgroundColor: kPrimaryColor,
       appBar: AppBar(
-        backgroundColor:
-            displayMenu ? const Color.fromARGB(255, 17, 5, 45) : Colors.white,
+        backgroundColor: displayMenu ? kPrimaryColor : kBackgroundColor,
         title: Text(
           "Galsen Store",
           style: TextStyle(
             color: displayMenu
-                ? Colors.white
+                ? kBackgroundColor
                 : const Color.fromARGB(255, 17, 5, 45),
           ),
         ),
@@ -62,7 +63,7 @@ class _HomeState extends State<Home> {
               displayMenu ? Icons.close : Icons.menu,
               size: 30,
               color: displayMenu
-                  ? Colors.white
+                  ? kBackgroundColor
                   : const Color.fromARGB(255, 17, 5, 45),
             ),
           ),
@@ -74,7 +75,7 @@ class _HomeState extends State<Home> {
               Icons.store,
               size: 30,
               color: displayMenu
-                  ? Colors.white
+                  ? kBackgroundColor
                   : const Color.fromARGB(255, 17, 5, 45),
             ),
           ),
@@ -97,7 +98,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     "Menu",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: kBackgroundColor,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
@@ -117,9 +118,9 @@ class _HomeState extends State<Home> {
                             ListTile(
                               title: (const Text("Recommended",
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white))),
+                                      fontSize: 20, color: kBackgroundColor))),
                               leading: const Icon(Icons.recommend,
-                                  color: Colors.white),
+                                  color: kBackgroundColor),
                               onTap: () {
                                 Get.to(
                                   const CategoriPage(),
@@ -131,9 +132,9 @@ class _HomeState extends State<Home> {
                             ListTile(
                               title: (const Text("Popular",
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white))),
-                              leading:
-                                  const Icon(Icons.people, color: Colors.white),
+                                      fontSize: 20, color: kBackgroundColor))),
+                              leading: const Icon(Icons.people,
+                                  color: kBackgroundColor),
                               onTap: () {
                                 Get.to(
                                   const CategoriPage(),
@@ -145,9 +146,9 @@ class _HomeState extends State<Home> {
                             ListTile(
                               title: (const Text("Categories",
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white))),
+                                      fontSize: 20, color: kBackgroundColor))),
                               leading: const Icon(Icons.category_rounded,
-                                  color: Colors.white),
+                                  color: kBackgroundColor),
                               onTap: () {
                                 Get.to(
                                   const CategoriPage(),
@@ -163,15 +164,19 @@ class _HomeState extends State<Home> {
                               leading:
                                   const Icon(Icons.search, color: Colors.white),
                               onTap: () {
-                               
+                                Get.to(
+                                  const ChairPage(),
+                                  transition: Transition.fade,
+                                  duration: const Duration(seconds: 2),
+                                );
                               },
                             ),
                             ListTile(
                               title: (const Text("Account",
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white))),
-                              leading:
-                                  const Icon(Icons.person, color: Colors.white),
+                                      fontSize: 20, color: kBackgroundColor))),
+                              leading: const Icon(Icons.person,
+                                  color: kBackgroundColor),
                               onTap: () {
                                 Get.to(
                                   const CategoriPage(),
@@ -191,9 +196,9 @@ class _HomeState extends State<Home> {
                             ListTile(
                               title: (const Text("Settings",
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white))),
+                                      fontSize: 20, color: kBackgroundColor))),
                               leading: const Icon(Icons.settings,
-                                  color: Colors.white),
+                                  color: kBackgroundColor),
                               onTap: () {
                                 Get.to(
                                   const CategoriPage(),
