@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galsen_store/chaire_page.dart';
 import 'package:galsen_store/constant.dart';
 import 'package:galsen_store/home.dart';
 import 'package:get/get.dart';
@@ -40,20 +41,59 @@ class _CategoriPageState extends State<CategoriPage> {
       body: SingleChildScrollView(
         child: Column(children: [
           SizedBox(
-            height: height * .07,
+            height: height * .05,
             child: const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 15.0),
+                  padding: EdgeInsets.only(left: 20.0),
                   child: Text(
                     "Categories",
                     style: TextStyle(fontSize: 20),
                   ),
                 )),
           ),
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            width: width * .9,
+            height: 50,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                    width: 1.5, color: const Color.fromARGB(255, 17, 5, 45)),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: const [
+                  BoxShadow(
+                      offset: Offset(1, 1),
+                      blurRadius: 8,
+                      color: Colors.white,
+                      spreadRadius: -4)
+                ]),
+            child: const Center(
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Find your ...",
+                  hintStyle: TextStyle(
+                    fontSize: 15,
+                    color: Color.fromARGB(255, 17, 5, 45),
+                  ),
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: Color.fromARGB(255, 17, 5, 45),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
           Container(
             padding: EdgeInsets.zero,
-            height: height * .6,
+            height: height * .45,
             decoration: const BoxDecoration(
               color: kBackgroundColor,
             ),
@@ -65,33 +105,36 @@ class _CategoriPageState extends State<CategoriPage> {
                 itemBuilder: ((context, index) {
                   final categorie = categories[index];
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(
+                        const ChairPage(),
+                        transition: Transition.fade,
+                        duration: const Duration(seconds: 2),
+                      );
+                    },
                     child: Container(
                       width: width * .7,
                       decoration: BoxDecoration(
-                          color: categorie.primaryColor,
-                          borderRadius: BorderRadius.circular(20)),
-                      margin: const EdgeInsets.all(
-                        15,
+                        color: kSecondaryColor,
+                        border: Border.all(width: 1, color: kPrimaryColor),
+                        borderRadius: BorderRadius.circular(20),
+                        image: DecorationImage(
+                            image: AssetImage(categorie.image),
+                            fit: BoxFit.cover),
+                      ),
+                      padding: const EdgeInsets.only(left: 15),
+                      margin: const EdgeInsets.only(
+                        left: 20,
                       ),
                       child: Stack(
                         children: [
                           Positioned(
                             top: 20,
-                            left: 20,
+                            left: 10,
                             child: Text(
                               categorie.title,
                               style: const TextStyle(
                                   fontSize: 16, color: Colors.white),
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 20,
-                            left: 40,
-                            right: -20,
-                            child: Container(
-                              height: height * .45,
-                              color: categorie.secondColor,
                             ),
                           ),
                         ],
@@ -103,53 +146,82 @@ class _CategoriPageState extends State<CategoriPage> {
             ),
           ),
           const SizedBox(
-            child: Align(
+            height: 15,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20),
+            child: const Align(
               alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  "Popular",
-                  style: TextStyle(fontSize: 16),
-                ),
+              child: Text(
+                "Popular",
+                style: TextStyle(fontSize: 16, color: kPrimaryColor),
               ),
             ),
           ),
+          const SizedBox(
+            height: 15,
+          ),
           Container(
-            height: height * .15,
-            padding: EdgeInsets.zero,
+            height: height * .22,
+            margin: const EdgeInsets.only(left: 5),
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
+              itemCount: populars.length,
               itemBuilder: ((context, index) {
-                final categorie = categories[index];
+                final popular = populars[index];
                 return InkWell(
                   onTap: () {},
                   child: Container(
-                    width: 110,
+                    width: width * .42,
                     decoration: BoxDecoration(
-                        color: categorie.primaryColor,
-                        borderRadius: BorderRadius.circular(10)),
-                    margin: const EdgeInsets.all(
-                      15,
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      border: Border.all(width: 1, color: kPrimaryColor),
+                    ),
+                    margin: const EdgeInsets.only(
+                      left: 15,
                     ),
                     child: Stack(
                       children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 15),
-                              child: Text(categorie.title,
-                                  style: const TextStyle(
-                                      fontSize: 12, color: Colors.white)),
-                            ),
-                            Text(
-                              categorie.title,
-                              style: const TextStyle(
-                                  fontSize: 12, color: Colors.white),
-                            ),
-                          ],
-                        )
+                        Positioned(
+                            child: Container(
+                          height: height * .18,
+                          decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
+                              color: kSecondaryColor,
+                              image: DecorationImage(
+                                  image: AssetImage(popular.image),
+                                  fit: BoxFit.cover)),
+                        )),
+                        Positioned(
+                            bottom: 5,
+                            left: 5,
+                            right: 5,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(popular.title,
+                                    style: const TextStyle(
+                                        fontSize: 12, color: kPrimaryColor)),
+                                Row(
+                                  children: [
+                                    Text(popular.star,
+                                        style: const TextStyle(
+                                            fontSize: 12,
+                                            color: kPrimaryColor)),
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 15,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ))
                       ],
                     ),
                   ),

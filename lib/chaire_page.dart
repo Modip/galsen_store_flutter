@@ -43,11 +43,11 @@ class _ChairPageState extends State<ChairPage> {
             height: height * .3,
             child: Stack(children: [
               Positioned(
-                top: 5,
-                right: 5,
+                top: -20,
+                right: 35,
                 bottom: 10,
                 child: SizedBox(
-                  child: Image.asset("assets/images/gamer44_bg.png"),
+                  child: Image.asset("assets/images/chair33_bg.png"),
                 ),
               ),
               Positioned(
@@ -61,7 +61,7 @@ class _ChairPageState extends State<ChairPage> {
                       padding: EdgeInsets.all(8.0),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Modip Shop",
+                        child: Text("wheelchair",
                             style:
                                 TextStyle(fontSize: 20, color: kPrimaryColor)),
                       ),
@@ -88,7 +88,7 @@ class _ChairPageState extends State<ChairPage> {
                 child: Padding(
                   padding: EdgeInsets.only(left: 15.0),
                   child: Text(
-                    "Chairs Gamer",
+                    "All Chairs ",
                     style: TextStyle(fontSize: 18, color: kPrimaryColor),
                   ),
                 )),

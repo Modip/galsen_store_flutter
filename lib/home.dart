@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
                                   color: kBackgroundColor),
                               onTap: () {
                                 Get.to(
-                                  const CategoriPage(),
+                                  const ChairPage(),
                                   transition: Transition.fade,
                                   duration: const Duration(seconds: 2),
                                 );
@@ -245,7 +245,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Positioned(
                     left: 5,
-                    top: 20,
+                    top: 30,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
@@ -295,7 +295,7 @@ class _HomeState extends State<Home> {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          " may like it",
+                          " may like this combo",
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -308,33 +308,42 @@ class _HomeState extends State<Home> {
                     left: 0,
                     right: 0,
                     child: SizedBox(
-                      height: 400,
+                      height: height * .54,
                       child: ListView.builder(
-                          itemCount: categories.length,
+                          itemCount: setups.length,
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           physics: const BouncingScrollPhysics(),
                           itemBuilder: (context, index) {
-                            final maillot = categories[index];
+                            final setup = setups[index];
                             return Container(
                               margin: const EdgeInsets.only(left: 20),
                               height: height * .4,
                               width: width * .7,
                               decoration: BoxDecoration(
-                                  color: maillot.primaryColor,
-                                  borderRadius: BorderRadius.circular(12)),
+                                  color: kSecondaryColor,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                      width: 1, color: kPrimaryColor),
+                                  image: DecorationImage(
+                                      image: AssetImage(setup.image),
+                                      fit: BoxFit.cover)),
                               child: Stack(children: [
                                 Positioned(
-                                    top: 10,
-                                    left: 10,
-                                    child: Text(maillot.title))
+                                  top: 10,
+                                  left: 10,
+                                  child: Text(
+                                    setup.title,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ),
                               ]),
                             );
                           }),
                     ),
                   ),
                   Positioned(
-                    bottom: displayMenu ? 10 : 60,
+                    bottom: displayMenu ? 10 : 50,
                     left: 20,
                     child: Row(
                       children: const [

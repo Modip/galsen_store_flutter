@@ -1,64 +1,85 @@
-import 'package:flutter/material.dart';
-
 class Category {
-  final String title;
-
-  final String subtitle;
-  final Color primaryColor;
-  final Color secondColor;
+  final String title, image;
 
   const Category({
     required this.title,
-    required this.subtitle,
-    required this.primaryColor,
-    required this.secondColor,
+    required this.image,
   });
 }
 
 const categories = [
   Category(
-      title: "Tables",
-      subtitle: "Les lions de la teranga",
-      primaryColor: Colors.green,
-      secondColor: Colors.red),
+    title: "Chairs",
+    image: "assets/images/chair1.jpg",
+  ),
   Category(
-      title: "Lamps",
-      subtitle: "Le Syli national",
-      primaryColor: Colors.yellow,
-      secondColor: Colors.red),
+    title: "Lamps",
+    image: "assets/images/lamp2.jpg",
+  ),
   Category(
-      title: "Chaires",
-      subtitle: "Les mouhabitouns",
-      primaryColor: Colors.red,
-      secondColor: Colors.black),
+    title: "Screens",
+    image: "assets/images/ecran1.jpg",
+  ),
   Category(
-      title: "Safas",
-      subtitle: "Les aigles du Mali",
-      primaryColor: Colors.blue,
-      secondColor: Colors.white),
+    title: "Glasses",
+    image: "assets/images/lunette3.jpg",
+  ),
+  Category(
+    title: "Mouses",
+    image: "assets/images/souris2.jpg",
+  ),
+  Category(
+    title: "Headphone",
+    image: "assets/images/casque1.jpg",
+  ),
 ];
 
-class Menu {
-  final IconData icon;
-  final String title;
+class Popular {
+  final String title, star, image;
 
-  Menu({
-    required this.icon,
+  const Popular({
     required this.title,
+    required this.star,
+    required this.image,
   });
 }
 
-final menus = [
-  Menu(icon: Icons.recommend, title: "Recommended"),
-  Menu(icon: Icons.man, title: "Popular"),
-  Menu(icon: Icons.favorite, title: "Favories"),
-  Menu(icon: Icons.photo_library_outlined, title: "Categories"),
-  Menu(icon: Icons.search, title: "Search"),
-  Menu(icon: Icons.person, title: "Account"),
-];
-final submenus = [
-  Menu(icon: Icons.settings, title: "Settings"),
-  Menu(icon: Icons.logout, title: "Logout"),
+const populars = [
+  Popular(
+    title: "Chairs",
+    star: "90",
+    image: "assets/images/gamer2.jpg",
+  ),
+  Popular(
+    title: "Lamps",
+    star: "80",
+    image: "assets/images/lamp2.jpg",
+  ),
+  Popular(
+    title: "Mouses",
+    star: "77",
+    image: "assets/images/souris1.jpg",
+  ),
+  Popular(
+    title: "Laptop",
+    star: "70",
+    image: "assets/images/ecran1_bg.png",
+  ),
+  Popular(
+    title: "Headphone",
+    star: "61",
+    image: "assets/images/casque2.jpg",
+  ),
+  Popular(
+    title: "Safas",
+    star: "53",
+    image: "assets/images/gamer22_bg.png",
+  ),
+  Popular(
+    title: "Glasses",
+    star: "50",
+    image: "assets/images/lunette1.jpg",
+  ),
 ];
 
 class Chair {
@@ -74,20 +95,21 @@ class Chair {
 
 List<Chair> chairs = [
   Chair(
+    title: "Gamer",
+    image: "assets/images/gamer44_bg.png",
+    price: "\$300",
+    color: "black-white",
+  ),
+  Chair(
       title: "Gamer",
       image: "assets/images/gamer1_bg.png",
-      price: "\$30",
+      price: "\$500",
       color: "red-black"),
   Chair(
       title: "Gamer",
       image: "assets/images/gamer2_bg.png",
-      price: "\$80",
+      price: "\$110",
       color: "blue-black"),
-  Chair(
-      title: "Gamer",
-      image: "assets/images/gamer3_bg.png",
-      price: "\$90",
-      color: "green"),
   Chair(
       title: "Gamer",
       image: "assets/images/gamer4_bg.png",
@@ -95,41 +117,51 @@ List<Chair> chairs = [
       color: "blue-black"),
   Chair(
       title: "Gamer",
-      image: "assets/images/gamer1_bg.png",
+      image: "assets/images/gamer5_bg.png",
       price: "\$90",
       color: "green"),
   Chair(
-      title: "Gamer",
-      image: "assets/images/gamer2_bg.png",
+      title: "Sefas",
+      image: "assets/images/gamer3_bg.png",
+      price: "\$130",
+      color: "green"),
+  Chair(
+      title: "Desk",
+      image: "assets/images/gamer6_bg.png",
       price: "\$80",
       color: "blue-black"),
   Chair(
-      title: "Gamer",
-      image: "assets/images/gamer3_bg.png",
-      price: "\$90",
-      color: "green")
+      title: "Desk",
+      image: "assets/images/gamer7_bg.png",
+      price: "\$80",
+      color: "black"),
 ];
 
-class ChairColor {
-  final String color, image;
+class Setup {
+  final String title, image;
 
-  ChairColor({
-    required this.color,
-    required this.image,
-  });
+  Setup({required this.title, required this.image});
 }
 
-List chairsColors = [
-  ChairColor(
-    color: "red-black",
-    image: "assets/images/gamer1_bg.png",
+List setups = [
+  Setup(
+    title: "Modip",
+    image: "assets/images/setup1.jpg",
   ),
-  ChairColor(
-    color: "blue-black",
-    image: "assets/images/gamer2_bg.png",
+  Setup(
+    title: "S2F",
+    image: "assets/images/setup2.jpg",
   ),
-  ChairColor(
-    color: "green",
-    image: "assets/images/gamer3_bg.png",
+  Setup(
+    title: "Black n White",
+    image: "assets/images/setup3.jpg",
+  ),
+  Setup(
+    title: "Dieye-Code",
+    image: "assets/images/setup4.jpg",
+  ),
+  Setup(
+    title: "Malaw",
+    image: "assets/images/setup5.jpg",
   ),
 ];
